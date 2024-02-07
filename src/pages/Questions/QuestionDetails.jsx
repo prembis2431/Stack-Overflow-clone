@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import upvote from '../../assets/sort-up.svg'
-import downvote from '../../assets/sort-down.svg'
+import upvote from "../../assets/sort-up.svg";
+import downvote from "../../assets/sort-down.svg";
 // useParams is a hook provided by React Router that allows you
 // to access the parameters (or placeholders) in the URL in a React component.
 // for example: in AllRoutes.jsx, we used "/Questions/:id" to access the particular question's detail
@@ -94,32 +94,21 @@ const QuestionDetails = () => {
     },
   ];
 
-  console.log(id)
-  
+  console.log(id);
 
   return (
     <div className="question-details-page">
-       {  questionsList === null ? 
-          <h1>Loading...</h1> :
-          <>
-              {questionsList
-              .filter((question) => question._id === id)
-              .map((question) => (
-                <div key={question._id}>
-                  <section className="question-details-container">
-                      <h1>{question.questionTitle}</h1>
-                      <div className="question-details-container-2">
-                        <div className="question-votes">
-                            <img src={upvote} alt=""/>
-                            <p>{question.upVotes- question.downVotes}</p>
-                            <img src={downvote} alt=""/>
-                        </div>
-                      </div>
-                  </section>
-                </div>
-               ))}
-          </>
-      }
+    {questionsList === null ? (
+  <h1>Loading...</h1>
+) : (
+  <div> {questionsList .filter((question) => question._id === id)
+    .map((question) => (
+<div>
+<h1> Any question is here </ h1>
+</ div>
+))}
+  </ div>
+)}
     </div>
   );
 };
@@ -131,3 +120,30 @@ export default QuestionDetails;
 // what the above function is doing is, first it is matching the data coming from JSON object(backend)
 // with the "id" present in the url coming from AllRoutes.jsx, then it is putting a function by using
 // map() that returns a JSX in which we can see the details of the question which is selected.
+
+
+
+
+
+   
+  {/* {questionsList === null ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div>
+          (questionsList .filter((question) => question._id === id)
+          .map((question) => (
+          <div key={question._id}>
+            <section className="question-details-container">
+              <h1>{question.questionTitle}</h1>
+              <div className="question-details-container-2">
+                <div className="question-votes">
+                  <img src={upvote} alt="" />
+                  <p>{question.upVotes - question.downVotes}</p>
+                  <img src={downvote} alt="" />
+                </div>
+              </div>
+            </section>
+          </div>
+          )))
+        </>
+          */}
